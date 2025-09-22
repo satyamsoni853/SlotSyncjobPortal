@@ -11,6 +11,7 @@ import AboutUsPage from './Pages/AboutUsPage';
 import Header from './Header/Header';
 import Dreamjob from './LandingPage/Dreamjob';
 import Companies from './LandingPage/Companies';
+import Footer from './Footer/Footer';
 
 function App() {
   const theme = createTheme({
@@ -37,6 +38,7 @@ function App() {
           <Route path="/Upload-Job" element={<UploadJobPage />} />
           <Route path="/About-Us" element={<AboutUsPage />} />
         </Routes>
+        <Footer/>
         </BrowserRouter>
     </MantineProvider>
   );

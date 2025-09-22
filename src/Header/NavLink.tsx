@@ -10,7 +10,7 @@ function NavLink() {
   ];
   const location=useLocation()
   return (
-    <div className='flex items-center text-mine-shaft-300 h-full bg-mine-shaft-900 rounded-full p-5   space-x-8' >
+    <div className='flex items-center text-mine-shaft-300 h-full bg-gra-900 shadow-[0px_0px_30px_rgba(255,255,255,0.05)] rounded-full p-5   space-x-8' >
       {links.map((link) => (
        <div className={`border-t-[3px] items-center h-full ${location.pathname === `/${link.url}` ? 'border-faded-jade-400' : 'border-transparent'}`} >
 

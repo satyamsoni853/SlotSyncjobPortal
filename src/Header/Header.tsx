@@ -9,19 +9,19 @@ import { Avatar, Indicator } from "@mantine/core";
 import NavLink from "./NavLink";
 function Header() {
   return (
-    <div className="w-full bg-mine-shaft-950 text-white h-28 flex justify-between items-center px-8 border-b border-gray-700">
-      <div className="flex items-center bg-mine-shaft-900 rounded-full p-2 space-x-4">
+    <div className="w-full bg-gray-900 text-white h-28 flex justify-between items-center px-8 border-b border-gray-700">
+      <div className="flex items-center bg-gray-900 shadow-[0px_0px_30px_rgba(255,255,255,0.05)] rounded-full p-2 space-x-4">
         <IconSnowboarding className="cursor-pointer text-faded-jade-400" />
         <p className="text-2xl font-bold text-faded-jade-400 font-sans-serif">
           {" "}
           SlotSync
         </p>
       </div>
-      <div >
-      {/* NavLink Component Code Inline */}
-      {NavLink()}
+      <div>
+        {/* NavLink Component Code Inline */}
+        {NavLink()}
       </div>
-      <div className="flex items-center bg-mine-shaft-900 rounded-full p-2 space-x-4">
+      <div className="flex items-center bg-gray-900 shadow-[0px_0px_30px_rgba(255,255,255,0.05)] rounded-full p-2 space-x-4  ">
         <p className="hover:text-gray-300 cursor-pointer">
           <Avatar color="cyan" radius="xl">
             SS
