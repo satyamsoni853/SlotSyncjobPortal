@@ -10,11 +10,11 @@ function NavLink() {
   ];
   const location=useLocation()
   return (
-    <div className='flex items-center bg-mine-shaft-900 rounded-full p-5   space-x-8' >
+    <div className='flex items-center text-mine-shaft-300 h-full bg-mine-shaft-900 rounded-full p-5   space-x-8' >
       {links.map((link) => (
-       <div>
+       <div className={`border-t-[3px] items-center h-full ${location.pathname === `/${link.url}` ? 'border-faded-jade-400' : 'border-transparent'}`} >
 
-         <Link key={link.name} to={link.url} className="hover:text-gray-300 cursor-pointer">{link.name}</Link>
+         <Link key={link.name} to={`/${link.url}`} className="hover:text-gray-300 cursor-pointer">{link.name}</Link>
        </div>
       ))}
     </div>

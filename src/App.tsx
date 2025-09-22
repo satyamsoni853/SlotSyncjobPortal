@@ -1,12 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { createTheme, MantineProvider, Slider } from '@mantine/core';
+import { createTheme, MantineProvider } from '@mantine/core';
 import '@mantine/core/styles.css';
 import HomePage from './Pages/HomePage';
-import { create } from 'domain';
-import { Browser } from 'tabler-icons-react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import FindJobPage from './Pages/FindJobPage';
+import FindTalentPage from './Pages/FindTalentPage';
+import UploadJobPage from './Pages/UploadJobPage';
+import AboutUsPage from './Pages/AboutUsPage';
+import Header from './Header/Header';
+import Dreamjob from './LandingPage/Dreamjob';
+import Companies from './LandingPage/Companies';
 
 function App() {
   const theme = createTheme({
@@ -24,8 +28,14 @@ function App() {
   return (
       <MantineProvider theme={theme}  >
         <BrowserRouter>
+        <Header />
         <Routes>
           <Route path="*" element={<HomePage />} />
+  
+          <Route path="/Find-Job" element={<FindJobPage />} />
+          <Route path="/Find-Talent" element={<FindTalentPage />} />
+          <Route path="/Upload-Job" element={<UploadJobPage />} />
+          <Route path="/About-Us" element={<AboutUsPage />} />
         </Routes>
         </BrowserRouter>
     </MantineProvider>

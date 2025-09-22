@@ -1,9 +1,14 @@
 import React from 'react'
-import Header from '../Header/Header'
+import Dreamjob from '../LandingPage/Dreamjob'
+import Companies from '../LandingPage/Companies'
+
+
 function HomePage() {
   return (
     <div className='min-h-[100vh] bg-mine-shaft-950 font-["Fontdiner"] ' >
-      <Header/>
+      <Dreamjob />
+      <Companies />
+      
     </div>
   )
 }
