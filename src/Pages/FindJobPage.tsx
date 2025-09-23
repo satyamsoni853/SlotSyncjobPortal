@@ -1,7 +1,10 @@
 import React from 'react';
+import Searchbar from '../FindJobs/Searchbar';
 
 function FindJobPage() {
-  return <div>Find Job Page</div>;
+  return <div>
+    <Searchbar/>
+  </div>;
 }
 
 export default FindJobPage;

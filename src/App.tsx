@@ -27,16 +27,17 @@ function App() {
     },
   });
   return (
-      <MantineProvider theme={theme}  >
+      <MantineProvider defaultColorScheme='dark' theme={theme}  >
         <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="*" element={<HomePage />} />
-  
           <Route path="/Find-Job" element={<FindJobPage />} />
           <Route path="/Find-Talent" element={<FindTalentPage />} />
           <Route path="/Upload-Job" element={<UploadJobPage />} />
           <Route path="/About-Us" element={<AboutUsPage />} />
+          <Route path="*" element={<HomePage />} />
+  
+          
         </Routes>
         <Footer/>
         </BrowserRouter>
