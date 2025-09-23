@@ -1,10 +1,67 @@
 import { IconBriefcase, IconMapPin, IconRecharging, IconSearch } from "@tabler/icons-react";
 
-const dropdownData = [
-    { title: "Job Title", icon: IconSearch, options: ['Designer', 'Developer', 'Product Manager', 'Marketing Specialist', 'Data Analyst', 'Sales Executive', 'Content Writer', 'Customer Support'] },
-    { title: "Location", icon: IconMapPin, options: ['Delhi', 'New York', 'San Francisco', 'London', 'Berlin', 'Tokyo', 'Sydney', 'Toronto'] },
-    { title: "Experience", icon: IconBriefcase, options: ['Entry Level', 'Intermediate', 'Expert'] },
-    { title: "Job Type", icon: IconRecharging, options: ['Full Time', 'Part Time', 'Contract', 'Freelance', 'Internship'] }
+// src/JobPortalResources/Data/JobsData.ts
+
+// You'll need to import your icons. For demonstration, I'm using placeholder strings.
+// In a real project, you might import them from a library like @tabler/icons-react
+// import { IconBriefcase, IconMapPin, IconHourglassHigh, IconTools } from '@tabler/icons-react';
+
+ const dropdownData = [
+  {
+    name: 'jobTitle',
+    label: 'Job Title',
+    placeholder: 'e.g., Software Engineer',
+    // icon: <IconBriefcase size={20} />, // Example using Tabler Icons
+    icon: 'BriefcaseIcon', // Placeholder string for the icon
+    data: [
+      { value: 'swe', label: 'Software Engineer' },
+      { value: 'pm', label: 'Product Manager' },
+      { value: 'designer', label: 'UX/UI Designer' },
+      { value: 'data_scientist', label: 'Data Scientist' },
+      { value: 'devops', label: 'DevOps Engineer' },
+    ],
+  },
+  {
+    name: 'location',
+    label: 'Location',
+    placeholder: 'e.g., Remote, New York',
+    // icon: <IconMapPin size={20} />,
+    icon: 'MapPinIcon', // Placeholder string for the icon
+    data: [
+      { value: 'remote', label: 'Remote' },
+      { value: 'ny', label: 'New York, NY' },
+      { value: 'sf', label: 'San Francisco, CA' },
+      { value: 'london', label: 'London, UK' },
+      { value: 'bangalore', label: 'Bangalore, IN' },
+    ],
+  },
+  {
+    name: 'experience',
+    label: 'Experience Level',
+    placeholder: 'e.g., Entry Level',
+    // icon: <IconHourglassHigh size={20} />,
+    icon: 'HourglassIcon', // Placeholder string for the icon
+    data: [
+      { value: 'internship', label: 'Internship' },
+      { value: 'entry', label: 'Entry Level (0-2 years)' },
+      { value: 'mid', label: 'Mid-Senior Level (3-5 years)' },
+      { value: 'senior', label: 'Senior Level (5+ years)' },
+    ],
+  },
+  {
+    name: 'skills',
+    label: 'Skills',
+    placeholder: 'e.g., React, Python',
+    // icon: <IconTools size={20} />,
+    icon: 'ToolsIcon', // Placeholder string for the icon
+    data: [
+      { value: 'react', label: 'React' },
+      { value: 'nodejs', label: 'Node.js' },
+      { value: 'python', label: 'Python' },
+      { value: 'typescript', label: 'TypeScript' },
+      { value: 'aws', label: 'AWS' },
+    ],
+  },
 ];
 
 const jobList = [
