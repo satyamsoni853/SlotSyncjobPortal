@@ -31,10 +31,10 @@ function JobCard(props: any) {
               className="bg-white p-1" // Added padding for better logo appearance
             />
             <div>
-              <p className="text-sm text-gray-400">Microsoft</p>
+              <p className="text-sm text-gray-400">{props.companyName}</p>
               <div className="flex items-center gap-2">
                 <h3 className="text-lg sm:text-xl font-bold text-white">
-                  Senior Backend Engineer
+                 {props.jobTitle}
                 </h3>
               </div>
             </div>
