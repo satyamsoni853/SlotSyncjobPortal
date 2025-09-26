@@ -3,10 +3,12 @@ import Searchbar from '../FindJobs/Searchbar';
 import Job from '../FindJobs/Job';
 
 function FindJobPage() {
-  return <div>
-    <Searchbar/>
-    <Job/>
-  </div>;
+  return (
+    <div className="mx-auto max-w-6xl px-4 pb-16 pt-10 space-y-8">
+      <Searchbar />
+      <Job />
+    </div>
+  );
 }
 
 export default FindJobPage;

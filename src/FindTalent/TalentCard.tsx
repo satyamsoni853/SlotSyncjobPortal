@@ -29,27 +29,29 @@ function TalentCard({
       withBorder
       p="lg"
       radius="lg"
-      className="bg-gray-900  border-gray-700/50 max-w-md shadow-lg transition-all duration-300 hover:border-cyan-500/50 hover:shadow-cyan-500/10 hover:scale-105"
+      className="bg-white dark:bg-gray-900 border-faded-jade-200/60 dark:border-gray-700/60 text-gray-900 dark:text-white shadow-[0px_10px_30px_rgba(19,121,111,0.1)] dark:shadow-[0px_0px_30px_rgba(255,255,255,0.05)] transition-colors duration-200 max-w-md hover:border-teal-400/70 dark:hover:border-cyan-400/70 hover:shadow-teal-500/10"
     >
       <div className="flex flex-col gap-5">
-        
-        {/* Header: Avatar, Name, Role, Company */}
         <div className="flex items-start gap-4">
           <Avatar src={image} size="xl" radius="xl" />
           <div>
-            <Text fz="xl" fw={700} className="text-white">{name}</Text>
-            <Text fz="sm" className="text-cyan-400">{role} at {company}</Text>
+            <Text fz="xl" fw={700} className="text-faded-jade-700 dark:text-white">
+              {name}
+            </Text>
+            <Text fz="sm" className="text-faded-jade-500 dark:text-cyan-300">
+              {role} at {company}
+            </Text>
           </div>
         </div>
 
-        {/* About Section */}
-        <Text fz="sm" className="text-gray-400">
+        <Text fz="sm" className="text-gray-600 dark:text-gray-300">
           {about}
         </Text>
-        
-        {/* Top Skills */}
+
         <div>
-          <Text fz="sm" fw={500} className="text-gray-300 mb-2">Top Skills:</Text>
+          <Text fz="sm" fw={500} className="text-gray-700 dark:text-gray-300 mb-2">
+            Top Skills:
+          </Text>
           <Group gap="xs">
             {topSkills.map((skill) => (
               <Badge key={skill} color="cyan" variant="light">
@@ -59,49 +61,52 @@ function TalentCard({
           </Group>
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-gray-700/50"></div>
-        
-        {/* Details: CTC and Location */}
+        <div className="border-t border-faded-jade-200/60 dark:border-gray-700/60"></div>
+
         <div className="grid grid-cols-2 gap-4 text-sm">
-          <div className="flex items-center gap-2 text-gray-300">
-            <IconCash size={18} className="text-green-400" />
+          <div className="flex items-center gap-2 text-gray-700 dark:text-gray-300">
+            <IconCash size={18} className="text-emerald-500" />
             <div>
-              <Text fz="xs" c="dimmed">Expected CTC</Text>
+              <Text fz="xs" c="dimmed">
+                Expected CTC
+              </Text>
               <Text fw={500}>{expectedCtc}</Text>
             </div>
           </div>
-          <div className="flex items-center gap-2 text-gray-300">
-            <IconMapPin size={18} className="text-orange-400" />
+          <div className="flex items-center gap-2 text-gray-700 dark:text-gray-300">
+            <IconMapPin size={18} className="text-orange-500" />
             <div>
-              <Text fz="xs" c="dimmed">Location</Text>
+              <Text fz="xs" c="dimmed">
+                Location
+              </Text>
               <Text fw={500}>{location}</Text>
             </div>
           </div>
         </div>
 
-        {/* Action Button */}
-        <Link to="/Talent-Profile">
-        <Button
-          fullWidth
-          variant="default"
-          leftSection={<IconExternalLink size={16} />}
-          className="bg-gray-800 hover:bg-gray-700 text-gray-200"
-        >
-          View Full Profile
-        </Button></Link>
-        <Button
-          fullWidth
-          variant="default"
-          leftSection={<IconExternalLink size={16} />}
-          className="bg-gray-800 hover:bg-gray-700 text-gray-200"
-        >
-          Message
-        </Button>
+        <div className="flex flex-col gap-3">
+          <Button
+            component={Link}
+            to="/Talent-Profile"
+            fullWidth
+            variant="default"
+            leftSection={<IconExternalLink size={16} />}
+            className="bg-faded-jade-100/80 dark:bg-gray-800 text-faded-jade-700 dark:text-gray-200 hover:bg-faded-jade-100 dark:hover:bg-gray-700 transition-colors"
+          >
+            View Full Profile
+          </Button>
+          <Button
+            fullWidth
+            variant="default"
+            leftSection={<IconExternalLink size={16} />}
+            className="bg-faded-jade-100/80 dark:bg-gray-800 text-faded-jade-700 dark:text-gray-200 hover:bg-faded-jade-100 dark:hover:bg-gray-700 transition-colors"
+          >
+            Message
+          </Button>
+        </div>
       </div>
     </Paper>
   );
 }
-
 
 export default TalentCard;

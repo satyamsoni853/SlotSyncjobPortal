@@ -14,10 +14,10 @@ import {
 } from '@tabler/icons-react';
 
 const iconMap: { [key: string]: React.ReactNode } = {
-  BriefcaseIcon: <IconBriefcase size={20} className="text-gray-400" />,
-  MapPinIcon: <IconMapPin size={20} className="text-gray-400" />,
-  HourglassIcon: <IconHourglassHigh size={20} className="text-gray-400" />,
-  ToolsIcon: <IconTools size={20} className="text-gray-400" />,
+  BriefcaseIcon: <IconBriefcase size={20} className="text-faded-jade-500 dark:text-gray-300" />,
+  MapPinIcon: <IconMapPin size={20} className="text-faded-jade-500 dark:text-gray-300" />,
+  HourglassIcon: <IconHourglassHigh size={20} className="text-faded-jade-500 dark:text-gray-300" />,
+  ToolsIcon: <IconTools size={20} className="text-faded-jade-500 dark:text-gray-300" />,
 };
 
 function Searchbar() {
@@ -36,12 +36,8 @@ function Searchbar() {
   };
 
   return (
-    // Main container with a softer background and a subtle border
-    <div className="bg-gray-900 p-5 rounded-xl border border-gray-700/50">
-      {/* Grid layout with vertical alignment at the end (bottom) */}
+    <section className="bg-white/80 dark:bg-gray-900 p-5 md:p-6 rounded-2xl border border-faded-jade-200/70 dark:border-gray-700/60 shadow-[0px_10px_30px_rgba(19,121,111,0.15)] dark:shadow-[0px_0px_30px_rgba(255,255,255,0.05)] backdrop-blur-sm transition-colors duration-200">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-x-4 gap-y-5 items-end">
-        
-        {/* Map over the 4 filter inputs */}
         {dropdownData.map((filterProps) => {
           const { icon, ...restOfFilterProps } = filterProps;
           return (
@@ -56,21 +52,20 @@ function Searchbar() {
           );
         })}
 
-        {/* Search Button takes the last column */}
         <Button
           onClick={handleSearch}
           fullWidth
-          size="sm" // Use a smaller height that matches the inputs
-          style={{ height: '42px' }}
+          size="sm"
+          
           leftSection={<IconSearch size={20} />}
-          variant="gradient" // A gradient button looks much better
-          gradient={{ from: 'blue', to: 'cyan', deg: 90 }}
+          variant="gradient"
+          gradient={{ from: 'teal', to: 'cyan', deg: 90 }}
           className="shadow-lg"
         >
           Search
         </Button>
       </div>
-    </div>
+    </section>
   );
 }
 

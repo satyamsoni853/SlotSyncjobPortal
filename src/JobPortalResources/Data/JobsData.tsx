@@ -1,4 +1,3 @@
-import { IconBriefcase, IconMapPin, IconRecharging, IconSearch } from "@tabler/icons-react";
 
 // src/JobPortalResources/Data/JobsData.ts
 

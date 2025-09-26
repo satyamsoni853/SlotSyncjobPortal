@@ -6,36 +6,20 @@ import { Link } from 'react-router-dom';
 function Signup() {
   return (
     <div className="w-full max-w-md space-y-6">
-      <Text ta="center" size="xl" fw={700} className="text-white">
+      <Text ta="center" size="xl" fw={700} className="text-faded-jade-700 dark:text-white">
         Create Account
       </Text>
 
-      <Button
-        fullWidth
-        leftSection={<IconBrandGoogle />}
-        variant="default"
-      >
+      <Button fullWidth leftSection={<IconBrandGoogle />} variant="default">
         Sign up with Google
       </Button>
 
-      <Divider my="sm" label="OR" labelPosition="center" classNames={{ label: 'text-gray-400' }} />
+      <Divider my="sm" label="OR" labelPosition="center" classNames={{ label: 'text-gray-500 dark:text-gray-400' }} />
 
       <form className="space-y-4">
-        <TextInput
-          label="Full Name"
-          placeholder="Your name"
-          required
-        />
-        <TextInput
-          label="Email address"
-          placeholder="hello@example.com"
-          required
-        />
-        <PasswordInput
-          label="Password"
-          placeholder="Your password"
-          required
-        />
+        <TextInput label="Full Name" placeholder="Your name" required />
+        <TextInput label="Email address" placeholder="hello@example.com" required />
+        <PasswordInput label="Password" placeholder="Your password" required />
         <Checkbox
           mt="md"
           label={
@@ -53,7 +37,7 @@ function Signup() {
         </Button>
       </form>
 
-      <Text ta="center" size="sm" color="dimmed">
+      <Text ta="center" size="sm" c="dimmed">
         Already have an account?{' '}
         <Anchor component={Link} to="/login">
           Log in

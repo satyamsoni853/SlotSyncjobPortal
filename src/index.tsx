@@ -4,12 +4,14 @@ import './tailwind.css';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ColorSchemeScript } from '@mantine/core';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
+    <ColorSchemeScript defaultColorScheme="dark" />
     <App />
   </React.StrictMode>
 );

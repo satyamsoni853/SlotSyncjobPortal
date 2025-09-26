@@ -1,12 +1,14 @@
 import React from 'react';
-import TalentSearchbar from '../Findtalent/TalentSearch';
-import TalentCardContainer from '../Findtalent/TalentCardContainer';
+import TalentSearchBar from '../FindTalent/TalentSearch';
+import TalentCardContainer from '../FindTalent/TalentCardContainer';
 
 function FindTalentPage() {
-  return <div className="min-h-screen bg-gray-900">
-    <TalentSearchbar/>
-    <TalentCardContainer/>
-  </div>;
+  return (
+    <div className="mx-auto max-w-6xl px-4 pb-16 pt-10 space-y-10">
+      <TalentSearchBar />
+      <TalentCardContainer />
+    </div>
+  );
 }
 
 export default FindTalentPage;

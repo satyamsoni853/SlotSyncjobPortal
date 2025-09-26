@@ -1,15 +1,13 @@
 import React from 'react';
-import Profile from '../TalentProfile/Profile'; // Assuming this path is correct
-import RecommendedTalent from '../TalentProfile/RecommentTalent';
+import Profile from '../TalentProfile/Profile';
+import RecommendedTalent from '../TalentProfile/RecommendedTalent';
 
 function TalentProfilePage() {
   return (
-    // This div acts as the main page container
-    // It sets the dark background, centers content, and enforces the 1600px max width
-    <div className="min-h-screen w-full bg-zinc-900 flex justify-center p-4 sm:p-6 lg:p-8">
-      <div className="w-full flex items-start justify-space-between flex-wrap max-w-[1600px]">
+    <div className="min-h-screen w-full flex justify-center p-4 sm:p-6 lg:p-10">
+      <div className="w-full flex items-start justify-between flex-wrap gap-8 max-w-[1600px]">
         <Profile />
-        <RecommendedTalent/>
+        <RecommendedTalent />
       </div>
     </div>
   );

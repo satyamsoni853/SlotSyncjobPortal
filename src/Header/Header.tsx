@@ -1,71 +1,84 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   IconBellMinus,
+  IconMenu2,
+  IconMoon,
   IconSettings,
   IconSnowboarding,
-  IconMenu2,
+  IconSun,
   IconX,
-} from "@tabler/icons-react";
-import { Avatar, Indicator } from "@mantine/core";
-import NavLink from "./NavLink";
-import { useLocation } from "react-router-dom";
-
+} from '@tabler/icons-react';
+import { Avatar, Indicator, useMantineColorScheme } from '@mantine/core';
+import NavLink from './NavLink';
+import { Link } from 'react-router-dom';
 
 function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const location = useLocation();
-
-  
+  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
+  const isDark = colorScheme === 'dark';
 
   const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
+    setIsMobileMenuOpen((previous) => !previous);
   };
 
-  return  ( location.pathname === '/Signup' || location.pathname === '/Login' ? null :
-    <div className="w-full bg-gray-900 text-white h-28 flex justify-between items-center px-8 border-b border-gray-700 relative">
-      <div className="flex items-center bg-gray-900 shadow-[0px_0px_30px_rgba(255,255,255,0.05)] rounded-full p-2 space-x-4">
-        <IconSnowboarding className="cursor-pointer text-faded-jade-400" />
-        <p className="text-2xl font-bold text-faded-jade-400 font-sans-serif">
+  const handleColorSchemeToggle = () => {
+    toggleColorScheme();
+  };
+
+  return (
+    <header className="w-full h-28 flex justify-between items-center px-8 border-b border-faded-jade-200 dark:border-gray-700 relative transition-colors duration-200 bg-gradient-to-r from-faded-jade-50 via-white to-faded-jade-100 dark:bg-gray-900 dark:from-transparent dark:via-transparent">
+      <div className="flex items-center bg-white/70 dark:bg-gray-900 shadow-[0px_10px_30px_rgba(19,121,111,0.15)] dark:shadow-[0px_0px_30px_rgba(255,255,255,0.05)] backdrop-blur-sm rounded-full px-4 py-2 space-x-3 transition-colors duration-200">
+        <IconSnowboarding className="cursor-pointer text-faded-jade-500 dark:text-faded-jade-400" />
+        <p className="text-2xl font-bold text-faded-jade-600 dark:text-faded-jade-400 font-sans-serif">
           SlotSync
         </p>
       </div>
 
-      {/* Desktop Navigation */}
       <div className="hidden lg:flex">
         <NavLink isMobile={false} />
       </div>
 
-      {/* Mobile Navigation */}
-      <div className="lg:hidden flex items-center">
-        <button onClick={toggleMobileMenu}>
-          {isMobileMenuOpen ? <IconX /> : <IconMenu2 />}
+      <div className="flex items-center space-x-4">
+        <button
+          type="button"
+          onClick={handleColorSchemeToggle}
+          aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+          className="rounded-full border border-faded-jade-200 dark:border-gray-700 bg-faded-jade-100 dark:bg-mine-shaft-800 text-faded-jade-700 dark:text-white p-2 transition-colors duration-200 hover:shadow-md"
+        >
+          {isDark ? <IconSun size={20} /> : <IconMoon size={20} />}
         </button>
+
+        <div className="hidden md:flex items-center bg-white/70 dark:bg-gray-900 shadow-[0px_10px_30px_rgba(19,121,111,0.1)] dark:shadow-[0px_0px_30px_rgba(255,255,255,0.05)] backdrop-blur-sm rounded-full p-2 space-x-4 transition-colors duration-200">
+          <Avatar color="cyan" radius="xl">
+            <Link to="/profile">
+              <span className="text-faded-jade-700 dark:text-white font-bold">
+                User Name
+              </span>
+            </Link>
+          </Avatar>
+          <Indicator offset={6} processing color="faded-jade.4" withBorder>
+            <IconBellMinus size={30} className="cursor-pointer rounded-full p-1 bg-faded-jade-100 dark:bg-mine-shaft-700 text-faded-jade-700 dark:text-white transition-colors duration-200" />
+          </Indicator>
+          <IconSettings size={30} className="cursor-pointer rounded-full p-1 bg-faded-jade-100 dark:bg-mine-shaft-700 text-faded-jade-700 dark:text-white transition-colors duration-200" />
+        </div>
+
+        <div className="lg:hidden flex items-center">
+          <button
+            onClick={toggleMobileMenu}
+            aria-label="Toggle navigation"
+            className="p-2 rounded-full border border-transparent hover:border-faded-jade-200 dark:hover:border-gray-700 transition-colors duration-200 bg-white/70 dark:bg-gray-900"
+          >
+            {isMobileMenuOpen ? <IconX /> : <IconMenu2 />}
+          </button>
+        </div>
       </div>
 
       {isMobileMenuOpen && (
-        <div className="absolute top-28 left-0 w-full bg-gray-900 lg:hidden">
-          <NavLink isMobile={true} />
+        <div className="absolute top-28 left-0 w-full bg-gradient-to-b from-faded-jade-50 to-white dark:from-transparent dark:to-transparent dark:bg-gray-900 border-t border-faded-jade-200 dark:border-gray-800 lg:hidden transition-colors duration-200">
+          <NavLink isMobile />
         </div>
       )}
-
-      <div className="hidden md:flex items-center bg-gray-900 shadow-[0px_0px_30px_rgba(255,255,255,0.05)] rounded-full p-2 space-x-4">
-        <p className="hover:text-gray-300 cursor-pointer">
-          <Avatar color="cyan" radius="xl">
-            SS
-          </Avatar>
-        </p>
-        <Indicator offset={6} processing color="faded-jade.4" withBorder>
-          <IconBellMinus
-            size={30}
-            className="cursor-pointer rounded-full p-1 bg-mine-shaft-700"
-          />
-        </Indicator>
-        <IconSettings
-          size={30}
-          className="cursor-pointer rounded-full p-1 bg-mine-shaft-700"
-        />
-      </div>
-    </div>
+    </header>
   );
 }
 
