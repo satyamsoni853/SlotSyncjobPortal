@@ -1,0 +1,94 @@
+/* RecommendedJob.css */
+
+.recommended-job-card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  max-width: 350px;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.recommended-job-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.company-logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  margin-right: 16px;
+  object-fit: contain;
+}
+
+.company-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.job-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333333;
+  margin: 0;
+}
+
+.company-name {
+  font-size: 1rem;
+  color: #666666;
+  margin: 4px 0 0;
+}
+
+.card-body {
+  margin-bottom: 24px;
+}
+
+.location {
+  font-size: 0.9rem;
+  color: #888888;
+  margin-bottom: 16px;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-tag {
+  background-color: #f0f0f0;
+  color: #555555;
+  border-radius: 16px;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.card-footer {
+  text-align: right;
+}
+
+.apply-button {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.apply-button:hover {
+  background-color: #0056b3;
+}

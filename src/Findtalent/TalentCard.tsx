@@ -1,6 +1,7 @@
 import React from 'react';
 import { Paper, Avatar, Text, Badge, Button, Group } from '@mantine/core';
 import { IconCash, IconMapPin, IconExternalLink } from '@tabler/icons-react';
+import { Link } from 'react-router-dom';
 
 interface TalentCardProps {
   name: string;
@@ -80,6 +81,7 @@ function TalentCard({
         </div>
 
         {/* Action Button */}
+        <Link to="/Talent-Profile">
         <Button
           fullWidth
           variant="default"
@@ -87,6 +89,14 @@ function TalentCard({
           className="bg-gray-800 hover:bg-gray-700 text-gray-200"
         >
           View Full Profile
+        </Button></Link>
+        <Button
+          fullWidth
+          variant="default"
+          leftSection={<IconExternalLink size={16} />}
+          className="bg-gray-800 hover:bg-gray-700 text-gray-200"
+        >
+          Message
         </Button>
       </div>
     </Paper>

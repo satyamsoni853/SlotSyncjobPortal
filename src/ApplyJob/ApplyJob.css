@@ -1,0 +1,100 @@
+/* ApplyJob.css */
+
+.apply-job-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f7f9fc;
+  padding: 2rem;
+}
+
+.apply-job-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 600px;
+  font-family: 'Inter', sans-serif;
+}
+
+.form-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+}
+
+.company-name {
+  font-size: 1.125rem;
+  color: #718096;
+  margin-bottom: 2rem;
+}
+
+.job-application-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #4a5568;
+  margin-bottom: 0.5rem;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #cbd5e0;
+  border-radius: 8px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: #4299e1;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+}
+
+.form-input-file {
+  font-size: 1rem;
+  color: #4a5568;
+}
+
+.submit-button {
+  background-color: #4299e1;
+  color: #ffffff;
+  font-size: 1.125rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  padding: 0.875rem 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 1rem;
+}
+
+.submit-button:hover {
+  background-color: #2b6cb0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .apply-job-card {
+    padding: 2rem;
+  }
+
+  .form-title {
+    font-size: 1.75rem;
+  }
+}

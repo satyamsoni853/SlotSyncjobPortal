@@ -8,15 +8,20 @@ import {
 } from "@tabler/icons-react";
 import { Avatar, Indicator } from "@mantine/core";
 import NavLink from "./NavLink";
+import { useLocation } from "react-router-dom";
+
 
 function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+
+  
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  return (
+  return  ( location.pathname === '/Signup' || location.pathname === '/Login' ? null :
     <div className="w-full bg-gray-900 text-white h-28 flex justify-between items-center px-8 border-b border-gray-700 relative">
       <div className="flex items-center bg-gray-900 shadow-[0px_0px_30px_rgba(255,255,255,0.05)] rounded-full p-2 space-x-4">
         <IconSnowboarding className="cursor-pointer text-faded-jade-400" />

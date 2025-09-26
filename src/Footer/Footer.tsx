@@ -8,8 +8,10 @@ import {
   IconBrandFacebook,  // Added
   IconWorld,          // Added for portfolio
 } from '@tabler/icons-react';
+import { useLocation } from 'react-router-dom';
 
 function Footer() {
+  const location = useLocation();
   // Storing your links here for cleanliness
   const socialLinks = {
     portfolio: 'https://satyamsoni-nextjs-portfolio.vercel.app/',
@@ -21,6 +23,7 @@ function Footer() {
   };
 
   return (
+    location.pathname === '/Signup' || location.pathname === '/Login' ? null :
     <footer className="bg-gray-900 border-t border-gray-700 text-white">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">

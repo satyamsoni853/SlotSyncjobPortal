@@ -12,6 +12,11 @@ import Header from './Header/Header';
 import Dreamjob from './LandingPage/Dreamjob';
 import Companies from './LandingPage/Companies';
 import Footer from './Footer/Footer';
+import TalentProfilePage from './Pages/TalentProfilePage';
+import JobDexcrpitionPage from './Pages/JobDexcrpitionPage';
+import ApplyJobPage from './Pages/ApplyJobPage';
+import SinupPgae from './Pages/SinupPgae';
+import Layout from './Layout';
 
 function App() {
   const theme = createTheme({
@@ -29,17 +34,23 @@ function App() {
   return (
       <MantineProvider defaultColorScheme='dark' theme={theme}  >
         <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="/Find-Job" element={<FindJobPage />} />
-          <Route path="/Find-Talent" element={<FindTalentPage />} />
-          <Route path="/Upload-Job" element={<UploadJobPage />} />
-          <Route path="/About-Us" element={<AboutUsPage />} />
-          <Route path="*" element={<HomePage />} />
-  
-          
-        </Routes>
-        <Footer/>
+          <Layout>
+            <Routes>
+              <Route path="/Find-Job" element={<FindJobPage />} />
+              <Route path="/Find-Talent" element={<FindTalentPage />} />
+              <Route path="/Upload-Job" element={<UploadJobPage />} />
+              <Route path="/About-Us" element={<AboutUsPage />} />
+              <Route path="/Talent-Profile" element={<TalentProfilePage />} />
+              <Route path="/Job-Dexcrpition" element={<JobDexcrpitionPage />} />
+              <Route path="/Apply-Job" element={<ApplyJobPage />} />
+              <Route path="/Signup" element={<SinupPgae isLogin={false} />} />
+              <Route path="/Login" element={<SinupPgae isLogin={true} />} />
+              
+              <Route path="*" element={<HomePage />} />
+      
+              
+            </Routes>
+          </Layout>
         </BrowserRouter>
     </MantineProvider>
   );
