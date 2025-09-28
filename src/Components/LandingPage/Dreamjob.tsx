@@ -1,5 +1,5 @@
 import React from 'react';
-import boyImage from '../JobPortalResources/Boy.png';
+import boyImage from '../../JobPortalResources/Boy.png';
 import {
   IconSearch,
   IconBriefcase,
@@ -7,9 +7,9 @@ import {
   IconStarFilled,
 } from '@tabler/icons-react';
 import { Avatar } from '@mantine/core';
-import avatarpng from '../JobPortalResources/avatar.png';
-import avatar1 from '../JobPortalResources/avatar1.png';
-import avatar2 from '../JobPortalResources/avatar2.png';
+import avatarpng from '../../JobPortalResources/avatar.png';
+import avatar1 from '../../JobPortalResources/avatar1.png';
+import avatar2 from '../../JobPortalResources/avatar2.png';
 
 function Dreamjob() {
   return (

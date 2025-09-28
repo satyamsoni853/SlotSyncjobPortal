@@ -1,7 +1,7 @@
 import React from 'react';
 import Marquee from 'react-fast-marquee';
-import { companies } from '../JobPortalResources/Data/Data';
-import { companyLogos } from '../JobPortalResources/Companies';
+import { companies } from '../../JobPortalResources/Data/Data';
+import { companyLogos } from '../../JobPortalResources/Companies';
 
 function Companies() {
   return (

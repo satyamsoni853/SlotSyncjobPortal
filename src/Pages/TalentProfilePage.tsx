@@ -1,6 +1,8 @@
 import React from 'react';
-import Profile from '../TalentProfile/Profile';
-import RecommendedTalent from '../TalentProfile/RecommendedTalent';
+import Profile from '../Components/TalentProfile/Profile';
+import RecommendedTalent from '../Components/TalentProfile/RecommendedTalent';
+
+
 
 function TalentProfilePage() {
   return (

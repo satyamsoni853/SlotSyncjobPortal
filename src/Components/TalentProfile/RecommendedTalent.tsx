@@ -6,8 +6,8 @@ import {
   IconMessageCircle2,
 } from '@tabler/icons-react';
 
-import AvatarJarrod from '../JobPortalResources/avatar.png';
-import AvatarAisha from '../JobPortalResources/avatar2.png';
+import AvatarJarrod from '../../JobPortalResources/avatar.png';  
+import AvatarAisha from '../../JobPortalResources/avatar2.png';
 
 interface Talent {
   id: number;

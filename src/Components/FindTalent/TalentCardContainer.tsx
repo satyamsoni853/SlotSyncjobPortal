@@ -1,11 +1,13 @@
 import React from 'react';
 import TalentCard from './TalentCard';
 
-import { talents } from '../JobPortalResources/Data/TalentData';
+import { talents } from '../../JobPortalResources/Data/TalentData';
 
-import avatar from '../JobPortalResources/avatar.png';
-import avatar1 from '../JobPortalResources/avatar1.png';
-import avatar2 from '../JobPortalResources/avatar2.png';
+
+
+import avatar from '../../JobPortalResources/avatar.png';
+import avatar1 from '../../JobPortalResources/avatar1.png';
+import avatar2 from '../../JobPortalResources/avatar2.png';
 
 const avatarMap: { [key: string]: string } = {
   avatar: avatar,

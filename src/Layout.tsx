@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useMantineColorScheme } from '@mantine/core';
-import Header from './Header/Header';
-import Footer from './Footer/Footer';
-
+import Header from './Components/Header/Header';
+import Footer from './Components/Footer/Footer';
+import './App.css';
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const location = useLocation();
   const hideHeaderFooter =

@@ -1,6 +1,6 @@
 import React from 'react';
-import Searchbar from '../FindJobs/Searchbar';
-import Job from '../FindJobs/Job';
+import Searchbar from '../Components/FindJobs/Searchbar';
+import Job from '../Components/FindJobs/Job';
 
 function FindJobPage() {
   return (

@@ -1,5 +1,6 @@
 import React from 'react';
-import UploadJob from '../UploadJob/UploadJob';
+import UploadJob from '../Components/UploadJob/UploadJob'; 
+
 
 function UploadJobPage() {
   return (

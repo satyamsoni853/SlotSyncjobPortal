@@ -1,5 +1,5 @@
 import React from 'react';
-import ApplyJob from '../ApplyJob/ApplyJob';
+import ApplyJob from '../Components/ApplyJob/ApplyJob';
 
 const ApplyJobPage = () => {
   return (

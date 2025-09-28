@@ -13,6 +13,7 @@ import JobDescriptionPage from './Pages/JobDescriptionPage';
 import ApplyJobPage from './Pages/ApplyJobPage';
 import AuthPage from './Pages/AuthPage';
 import ProfilePage from './Pages/ProfilePage';
+import ForgotPasswordPage from './Pages/ForgotPasswordPage';
 import Layout from './Layout';
 
 const grayscalePalette = [
@@ -57,6 +58,7 @@ function App() {
         <Routes>
           <Route path="/Login" element={<AuthPage isLogin />} />
           <Route path="/Signup" element={<AuthPage isLogin={false} />} />
+          <Route path="/forgot-password" element={<ForgotPasswordPage />} />
           <Route path="/*" element={<MainLayout />} />
         </Routes>
       </BrowserRouter>

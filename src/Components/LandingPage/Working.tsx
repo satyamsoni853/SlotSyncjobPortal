@@ -5,8 +5,10 @@ import {
   IconSend,
   IconCircleCheck,
 } from '@tabler/icons-react';
-import Girlimage from '../JobPortalResources/Working/Girl.png';
-import avatar from '../JobPortalResources/avatar1.png';
+import Girlimage from '../../JobPortalResources/Working/Girl.png';
+import avatar from '../../JobPortalResources/avatar1.png';
+
+
 
 const workingSteps = [
   {

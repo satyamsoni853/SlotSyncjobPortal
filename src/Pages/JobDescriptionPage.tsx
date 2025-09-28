@@ -1,5 +1,7 @@
 import React from 'react';
-import JobsDescription from '../JobsDescription/JobsDescription';
+import JobsDescription from '../Components/JobsDescription/JobsDescription';
+
+
 
 function JobDescriptionPage() {
   return (

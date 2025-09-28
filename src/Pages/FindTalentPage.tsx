@@ -1,6 +1,6 @@
 import React from 'react';
-import TalentSearchBar from '../FindTalent/TalentSearch';
-import TalentCardContainer from '../FindTalent/TalentCardContainer';
+import TalentSearchBar from '../Components/FindTalent/TalentSearch';
+import TalentCardContainer from '../Components/FindTalent/TalentCardContainer';
 
 function FindTalentPage() {
   return (

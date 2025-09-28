@@ -2,8 +2,8 @@ import React from 'react';
 import { IconBriefcase, IconMapPin } from '@tabler/icons-react';
 
 import CertificationCard from './CertificationCard';
-import BannerImage from '../JobPortalResources/Profile/banner.jpg';
-import AvatarImage from '../JobPortalResources/avatar.png';
+import BannerImage from '../../JobPortalResources/Profile/banner.jpg';
+import AvatarImage from '../../JobPortalResources/avatar.png';
 import ExperienceCard from './ExperienceCard';
 
 function Profile() {

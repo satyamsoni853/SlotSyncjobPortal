@@ -5,10 +5,10 @@ import { Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { IconQuote, IconStarFilled } from '@tabler/icons-react';
-import avatar1 from '../JobPortalResources/avatar1.png';
-import avatar2 from '../JobPortalResources/avatar2.png';
-import avatar3 from '../JobPortalResources/avatar.png';
-import avatar4 from '../JobPortalResources/avatar.png';
+import avatar1 from '../../JobPortalResources/avatar1.png';
+import avatar2 from '../../JobPortalResources/avatar2.png';
+import avatar3 from '../../JobPortalResources/avatar.png';
+import avatar4 from '../../JobPortalResources/avatar.png';
 
 const testimonials = [
   {

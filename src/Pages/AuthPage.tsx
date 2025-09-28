@@ -1,8 +1,9 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React from 'react';
 import { IconSnowboarding, IconSun, IconMoon } from '@tabler/icons-react';
 import { ActionIcon, useMantineColorScheme } from '@mantine/core';
-import Signup from '../SignupLogin/Signup';
-import Login from '../SignupLogin/Login';
+import Signup from '../Components/SignupLogin/Signup';
+import Login from '../Components/SignupLogin/Login';
+import { motion, AnimatePresence, Transition } from 'framer-motion';
 
 interface AuthPageProps {
   isLogin?: boolean;
@@ -43,31 +44,26 @@ function BrandingSection() {
 }
 
 function AuthPage({ isLogin = false }: AuthPageProps) {
-  const [isLoaded, setIsLoaded] = useState(false);
+  const pageVariants = {
+    initial: {
+      opacity: 0,
+      x: "-100%",
+    },
+    in: {
+      opacity: 1,
+      x: 0,
+    },
+    out: {
+      opacity: 0,
+      x: "100%",
+    },
+  };
 
-  useEffect(() => {
-    setIsLoaded(false);
-    const timer = setTimeout(() => setIsLoaded(true), 50);
-    return () => clearTimeout(timer);
-  }, [isLogin]);
-
-  const sections = useMemo(() => {
-    if (isLogin) {
-      return {
-        primary: <Login />,
-        secondary: <BrandingSection />,
-        primaryClasses: `${formContainerClasses} ${isLoaded ? 'translate-x-0' : '-translate-x-full'}`,
-        secondaryClasses: `${brandingContainerClasses} ${isLoaded ? 'translate-x-0' : 'translate-x-full'}`,
-      };
-    }
-
-    return {
-      primary: <BrandingSection />,
-      secondary: <Signup />,
-      primaryClasses: `${brandingContainerClasses} ${isLoaded ? 'translate-x-0' : '-translate-x-full'}`,
-      secondaryClasses: `${formContainerClasses} ${isLoaded ? 'translate-x-0' : 'translate-x-full'}`,
-    };
-  }, [isLogin, isLoaded]);
+  const pageTransition: Transition = {
+    type: "tween",
+    ease: "anticipate",
+    duration: 0.5,
+  };
 
   return (
     <div className="relative flex w-full h-screen items-center justify-center bg-gradient-to-br from-faded-jade-50 via-white to-faded-jade-100 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
@@ -75,8 +71,30 @@ function AuthPage({ isLogin = false }: AuthPageProps) {
         <ColorSchemeToggle />
       </div>
       <div className="flex w-full overflow-hidden">
-        <div className={sections.primaryClasses}>{sections.primary}</div>
-        <div className={sections.secondaryClasses}>{sections.secondary}</div>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={isLogin ? "login" : "signup"}
+            className={isLogin ? formContainerClasses : brandingContainerClasses}
+            initial="initial"
+            animate="in"
+            exit="out"
+            variants={pageVariants}
+            transition={pageTransition}
+          >
+            {isLogin ? <Login /> : <BrandingSection />}
+          </motion.div>
+          <motion.div
+            key={isLogin ? "branding" : "login"}
+            className={isLogin ? brandingContainerClasses : formContainerClasses}
+            initial="initial"
+            animate="in"
+            exit="out"
+            variants={pageVariants}
+            transition={pageTransition}
+          >
+            {isLogin ? <BrandingSection /> : <Signup />}
+          </motion.div>
+        </AnimatePresence>
       </div>
     </div>
   );

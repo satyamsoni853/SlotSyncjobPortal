@@ -2,7 +2,7 @@ import React from 'react';
 import { Select, useMantineColorScheme } from '@mantine/core';
 import { IconChevronDown } from '@tabler/icons-react';
 import JobCard from './JobCard';
-import { jobList } from '../JobPortalResources/Data/JobsData';
+import { jobList } from '../../JobPortalResources/Data/JobsData';
 
 function Job() {
   const { colorScheme } = useMantineColorScheme();

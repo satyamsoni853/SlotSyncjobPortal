@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import MultiInput from './MultiInput';
-import { dropdownData } from '../JobPortalResources/Data/JobsData';
+import { dropdownData } from '../../JobPortalResources/Data/JobsData';
 import { Button } from '@mantine/core';
 
 import {

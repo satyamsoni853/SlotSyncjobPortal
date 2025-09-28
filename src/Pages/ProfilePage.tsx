@@ -1,7 +1,7 @@
 import React from 'react';
 import { Avatar, Card, Container, Grid, Group, Text, Title, Paper, Badge, Button } from '@mantine/core';
-import ExperienceCard from '../TalentProfile/ExperienceCard';
-import CertificationCard from '../TalentProfile/CertificationCard';
+import ExperienceCard from '../Components/TalentProfile/ExperienceCard';
+import CertificationCard from '../Components/TalentProfile/CertificationCard';
 
 function ProfilePage() {
   const skills = ['React', 'TypeScript', 'Node.js', 'Next.js', 'GraphQL', 'PostgreSQL', 'Docker'];
