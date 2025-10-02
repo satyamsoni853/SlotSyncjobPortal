@@ -9,7 +9,10 @@ import { AuthProvider } from './AuthContext';
 import MainLayout from './MainLayout';
 import ProtectedRoute from './ProtectedRoute';
 import { ToastContainer } from 'react-toastify';
-
+import 'react-toastify/dist/ReactToastify.css';
+import { Provider } from 'react-redux';
+import store from './Store';
+                           
 const grayscalePalette = [
   '#ffffff',
   '#f0f0f0',
@@ -51,6 +54,8 @@ function ColorSchemeSync() {
 
 function App() {
   return (
+    <Provider store={store}>
+      <ToastContainer />
     <MantineProvider theme={theme} defaultColorScheme="dark" colorSchemeManager={colorSchemeManager}>
       <ColorSchemeSync />
       <AuthProvider>
@@ -66,6 +71,7 @@ function App() {
         </BrowserRouter>
       </AuthProvider>
     </MantineProvider>
+    </Provider>
   );
 }
 

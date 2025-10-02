@@ -52,7 +52,7 @@ function ForgotPassword() {
   const handleForgotPassword = async (values: { email: string }) => {
     setLoading(true);
     try {
-      await UserService.forgotPassword(values.email);
+      await UserService.sendOtp(values.email);
       toast.success('OTP sent to your email!');
       setEmail(values.email);
       setStep(2);

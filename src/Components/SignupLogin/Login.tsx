@@ -4,13 +4,18 @@ import { IconBrandGoogle } from '@tabler/icons-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from '@mantine/form';
 import UserService from '../Service/UserService';
-import { useAuth } from '../../AuthContext';
+import { useAuth } from '../../AuthContext'; // Import useAuth
+
 import { toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
+import { setUser } from '../Slices/UserSlice';
 
 function Login() {
   const [loading, setLoading] = useState(false);
-  const { login } = useAuth();
+
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { login } = useAuth(); // Get login function from AuthContext
 
   const form = useForm({
     initialValues: {
@@ -29,7 +34,10 @@ function Login() {
     try {
       await UserService.loginUser(values);
       toast.success('User logged in successfully!');
-      login();
+      dispatch(setUser(values));
+      login(); // Call login from AuthContext
+      console.log(values);
+
       navigate('/');
     } catch (error: any) {
       if (error && error.message) {

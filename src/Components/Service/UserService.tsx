@@ -40,20 +40,20 @@ const loginUser = async (userData: any) => {
 };
 
 
-const forgotPassword = async (email: string) => {
+const sendOtp = async (email: string) => {
   try {
-    const response = await axios.post(`${base_url}/forgot-password`, { email });
+    const response = await axios.post(`${base_url}/sendOtp/${email}`);
     return response.data;
   } catch (error) {
     if (axios.isAxiosError(error)) {
-      console.error('Error in forgot password:', error.response ? error.response.data : error.message);
+      console.error('Error sending OTP:', error.response ? error.response.data : error.message);
       if (error.response) {
         throw error.response.data;
       } else {
         throw new Error('Network Error');
       }
     } else {
-      console.error('Error in forgot password:', error);
+      console.error('Error sending OTP:', error);
       throw error;
     }
   }
@@ -100,7 +100,7 @@ const changePassword = async (userData: any) => {
 export default {
   registerUser,
   loginUser,
-  forgotPassword,
+  sendOtp,
   verifyOtp,
   changePassword,
 };
