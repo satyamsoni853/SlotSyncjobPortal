@@ -10,12 +10,13 @@ import { useMantineColorScheme } from '@mantine/core';
 import NavLink from './NavLink';
 import UserProfile from './UserProfile';
 import AuthButtons from './AuthButtons';
+import { useAuth } from '../../AuthContext';
 
 function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const isDark = colorScheme === 'dark';
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const { isAuthenticated } = useAuth();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen((previous) => !previous);
@@ -26,7 +27,7 @@ function Header() {
   };
 
   return (
-    <header className="w-full h-28 flex justify-between items-center px-8 border-b border-faded-jade-200 dark:border-gray-700 relative transition-colors duration-200 bg-gradient-to-r from-faded-jade-50 via-white to-faded-jade-100 dark:bg-gray-900 dark:from-transparent dark:via-transparent">
+    <header className="w-full h-28 flex justify-between items-center px-4 sm:px-6 lg:px-8 border-b border-faded-jade-200 dark:border-gray-700 relative transition-colors duration-200 bg-gradient-to-r from-faded-jade-50 via-white to-faded-jade-100 dark:bg-gray-900 dark:from-transparent dark:via-transparent">
       <div className="flex items-center bg-white/70 dark:bg-gray-900 shadow-[0px_10px_30px_rgba(19,121,111,0.15)] dark:shadow-[0px_0px_30px_rgba(255,255,255,0.05)] backdrop-blur-sm rounded-full px-4 py-2 space-x-3 transition-colors duration-200">
         <IconSnowboarding className="cursor-pointer text-faded-jade-500 dark:text-faded-jade-400" />
         <p className="text-2xl font-bold text-faded-jade-600 dark:text-faded-jade-400 font-sans-serif">
@@ -48,7 +49,7 @@ function Header() {
           {isDark ? <IconSun size={20} /> : <IconMoon size={20} />}
         </button>
 
-        {isLoggedIn ? <UserProfile /> : <AuthButtons />}
+        {isAuthenticated ? <UserProfile /> : <AuthButtons />}
 
         <div className="lg:hidden flex items-center">
           <button
