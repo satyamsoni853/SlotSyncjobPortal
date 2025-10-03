@@ -11,7 +11,7 @@ const UserSlice = createSlice({
     },
     removeUser: (state) => {
       removeItem('user');
-      return null;
+      state= null;
     }
   },
 });

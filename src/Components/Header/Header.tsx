@@ -5,18 +5,20 @@ import {
   IconSnowboarding,
   IconSun,
   IconX,
+  IconBellMinus, IconSettings, IconUser, IconMessage, IconFileText, IconLogout
 } from '@tabler/icons-react';
-import { useMantineColorScheme } from '@mantine/core';
+import { useMantineColorScheme, Avatar, Indicator, Menu } from '@mantine/core';
 import NavLink from './NavLink';
-import UserProfile from './UserProfile';
 import AuthButtons from './AuthButtons';
 import { useAuth } from '../../AuthContext';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const isDark = colorScheme === 'dark';
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, logout } = useAuth();
+  const navigate = useNavigate();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen((previous) => !previous);
@@ -24,6 +26,11 @@ function Header() {
 
   const handleColorSchemeToggle = () => {
     toggleColorScheme();
+  };
+
+  const handleLogout = () => {
+    logout();
+    navigate('/Login');
   };
 
   return (
@@ -49,7 +56,42 @@ function Header() {
           {isDark ? <IconSun size={20} /> : <IconMoon size={20} />}
         </button>
 
-        {isAuthenticated ? <UserProfile /> : <AuthButtons />}
+        {isAuthenticated ? (
+          <div className="hidden md:flex items-center bg-white/70 dark:bg-gray-900 shadow-[0px_10px_30px_rgba(19,121,111,0.1)] dark:shadow-[0px_0px_30px_rgba(255,255,255,0.05)] backdrop-blur-sm rounded-full p-2 space-x-4 transition-colors duration-200">
+            <Menu shadow="md" width={200}>
+              <Menu.Target>
+                <div className="flex items-center cursor-pointer">
+                  <Avatar color="cyan" radius="xl">
+                    <span className="text-faded-jade-700 dark:text-white font-bold">
+                      User Name
+                    </span>
+                  </Avatar>
+                </div>
+              </Menu.Target>
+
+              <Menu.Dropdown>
+                <Menu.Item component={Link} to="/profile" leftSection={<IconUser size={14} />}>
+                  Profile
+                </Menu.Item>
+                <Menu.Item component={Link} to="/messages" leftSection={<IconMessage size={14} />}>
+                  Message
+                </Menu.Item>
+                <Menu.Item component={Link} to="/resume" leftSection={<IconFileText size={14} />}>
+                  Resume
+                </Menu.Item>
+                <Menu.Item color="red" leftSection={<IconLogout size={14} />} onClick={handleLogout}>
+                  Logout
+                </Menu.Item>
+              </Menu.Dropdown>
+            </Menu>
+            <Indicator offset={6} processing color="faded-jade.4" withBorder>
+              <IconBellMinus size={30} className="cursor-pointer rounded-full p-1 bg-faded-jade-100 dark:bg-mine-shaft-700 text-faded-jade-700 dark:text-white transition-colors duration-200" />
+            </Indicator>
+            <IconSettings size={30} className="cursor-pointer rounded-full p-1 bg-faded-jade-100 dark:bg-mine-shaft-700 text-faded-jade-700 dark:text-white transition-colors duration-200" />
+          </div>
+        ) : (
+          <AuthButtons />
+        )}
 
         <div className="lg:hidden flex items-center">
           <button

@@ -5,15 +5,11 @@ const setItem = (key: string, value: any) => {
 };
 
 const getItem = (key: string) => {
- return JSON.parse(localStorage.getItem(key) as string || 'null');
+  return JSON.parse((localStorage.getItem(key) as string) || "null");
 };
 
 const removeItem = (key: string) => {
   localStorage.removeItem(key);
 };
 
-export  {
-  setItem,
-  getItem,
-  removeItem,
-};  
+export { setItem, getItem, removeItem };
