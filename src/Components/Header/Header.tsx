@@ -66,7 +66,7 @@ function Header() {
               <Menu.Target>
                 <div className="flex items-center cursor-pointer">
                   <Avatar color="cyan" radius="xl">
-                    <span className="text-faded-jade-700 dark:text-white font-bold">{user?.name || 'User'}</span>
+                    <span className="text-faded-jade-700 dark:text-white font-bold">{user?.name?.charAt(0).toUpperCase() || 'U'}</span>
                   </Avatar>
                 </div>
               </Menu.Target>
