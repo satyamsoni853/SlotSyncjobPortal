@@ -73,26 +73,20 @@ function AuthPage({ isLogin = false }: AuthPageProps) {
       <div className="flex w-full overflow-hidden">
         <AnimatePresence mode="wait">
           <motion.div
-            key={isLogin ? "login" : "signup"}
-            className={isLogin ? formContainerClasses : brandingContainerClasses}
+            key={isLogin ? "login-view" : "signup-view"}
+            className="flex w-full"
             initial="initial"
             animate="in"
             exit="out"
             variants={pageVariants}
             transition={pageTransition}
           >
-            {isLogin ? <Login /> : <BrandingSection />}
-          </motion.div>
-          <motion.div
-            key={isLogin ? "branding" : "login"}
-            className={isLogin ? brandingContainerClasses : formContainerClasses}
-            initial="initial"
-            animate="in"
-            exit="out"
-            variants={pageVariants}
-            transition={pageTransition}
-          >
-            {isLogin ? <BrandingSection /> : <Signup />}
+            <div className={isLogin ? formContainerClasses : brandingContainerClasses}>
+              {isLogin ? <Login /> : <BrandingSection />}
+            </div>
+            <div className={isLogin ? brandingContainerClasses : formContainerClasses}>
+              {isLogin ? <BrandingSection /> : <Signup />}
+            </div>
           </motion.div>
         </AnimatePresence>
       </div>

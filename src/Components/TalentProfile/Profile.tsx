@@ -1,53 +1,98 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { IconBriefcase, IconMapPin } from "@tabler/icons-react";
 import { FiEdit as FiEditIcon } from "react-icons/fi";
 
 import CertificationCard from "./CertificationCard";
 import ExperienceCard from "./ExperienceCard";
 import EducationCard from "../../Pages/EducationCard"; // Assuming path
+import ProfileService from "../Service/ProfileService";
+import { useSelector } from "react-redux";
 
-const mockProfile = {
-  bannerUrl: "/path/to/banner.jpg", // Replace with a valid image path or URL
-  avatarUrl: "/path/to/avatar.png", // Replace with a valid image path or URL
-  name: "John Doe",
-  about: "I am a passionate software engineer with over 5 years of experience in building web applications.",
-  skills: ["React", "TypeScript", "Node.js", "GraphQL"],
-  experiences: [
-    {
-      id: 1,
-      title: "Software Engineer",
-      company: "Google",
-      location: "Mountain View, CA",
-      startDate: "Jan 2020",
-      endDate: "Present",
-      description: "Worked on the Google Search team, improving the user experience."
-    }
-  ],
-  certifications: [
-    {
-      id: 1,
-      name: "AWS Certified Solutions Architect",
-      issuingOrganization: "Amazon Web Services",
-      issueDate: "Mar 2022"
-    }
-  ],
-  education: [
-    {
-      id: 1,
-      institution: "Stanford University",
-      degree: "Master of Science in Computer Science",
-      fieldOfStudy: "Computer Science",
-      startDate: "2018",
-      endDate: "2020"
-    }
-  ]
-};
+const ProfileSkeleton = () => (
+  <div className="w-full bg-white/95 dark:bg-zinc-900 rounded-2xl shadow-lg overflow-hidden border border-faded-jade-200/70 dark:border-zinc-700 animate-pulse">
+    {/* Banner */}
+    <div className="h-48 bg-gray-200 dark:bg-zinc-800"></div>
+    <div className="relative p-6 pt-20">
+      {/* Avatar */}
+      <div className="absolute -top-16 left-6 w-32 h-32 rounded-full bg-gray-300 dark:bg-zinc-700 border-4 border-white dark:border-zinc-900"></div>
+
+      {/* Header */}
+      <div className="h-8 w-48 bg-gray-300 dark:bg-zinc-700 rounded mb-2"></div>
+      <div className="h-5 w-64 bg-gray-300 dark:bg-zinc-700 rounded mb-6"></div>
+
+      {/* Job Info */}
+      <div className="space-y-2 mb-8">
+        <div className="h-4 w-1/2 bg-gray-300 dark:bg-zinc-700 rounded"></div>
+        <div className="h-4 w-1/3 bg-gray-300 dark:bg-zinc-700 rounded"></div>
+      </div>
+
+      {/* About Section */}
+      <div className="space-y-3">
+        <div className="h-6 w-32 bg-gray-300 dark:bg-zinc-700 rounded"></div>
+        <div className="h-4 w-full bg-gray-300 dark:bg-zinc-700 rounded"></div>
+        <div className="h-4 w-full bg-gray-300 dark:bg-zinc-700 rounded"></div>
+        <div className="h-4 w-3/4 bg-gray-300 dark:bg-zinc-700 rounded"></div>
+      </div>
+
+      {/* Skills Section */}
+      <div className="mt-8 space-y-3">
+        <div className="h-6 w-24 bg-gray-300 dark:bg-zinc-700 rounded"></div>
+        <div className="flex flex-wrap gap-2">
+          <div className="h-7 w-20 bg-gray-300 dark:bg-zinc-700 rounded-full"></div>
+          <div className="h-7 w-24 bg-gray-300 dark:bg-zinc-700 rounded-full"></div>
+          <div className="h-7 w-16 bg-gray-300 dark:bg-zinc-700 rounded-full"></div>
+          <div className="h-7 w-28 bg-gray-300 dark:bg-zinc-700 rounded-full"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+);
 
 function Profile() {
   const FiEdit = FiEditIcon as React.ComponentType<any>;
-  const profile = mockProfile;
+  const user = useSelector((state: any) => state.user);
 
-  if (!profile) return null;
+  const [profile, setProfile] = useState<any | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      if (!user || !user.profileId) {
+        setLoading(false);
+        return;
+      }
+      try {
+        const data = await ProfileService.getProfile(user.profileId.toString());
+        setProfile(data);
+      } catch (err: any) {
+        setError(err.message || "Failed to fetch profile");
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchProfile();
+  }, [user]);
+
+  if (loading) {
+    return <ProfileSkeleton />;
+  }
+
+  if (error) {
+    return (
+      <div className="max-w-[1000px] mx-auto p-6 text-center text-red-500">
+        Error: {error}
+      </div>
+    );
+  }
+
+  if (!profile) {
+    return (
+      <div className="max-w-[1000px] mx-auto p-6 text-center text-gray-500">
+        No profile data available. Please ensure you are logged in and have a profile.
+      </div>
+    );
+  }
 
   return (
     <div className="w-full bg-white/95 dark:bg-zinc-900 rounded-2xl shadow-[0px_20px_40px_rgba(19,121,111,0.12)] dark:shadow-[0px_0px_30px_rgba(255,255,255,0.05)] overflow-hidden text-gray-700 dark:text-gray-300 border border-faded-jade-200/70 dark:border-zinc-700 transition-colors duration-200">

@@ -33,8 +33,8 @@ function Login() {
     setLoading(true);
     try {
       const userData = await UserService.loginUser(values);
-      console.log("User data from login:", userData); 
-      dispatch(setUser(userData));
+      const { id, ...user } = userData;
+      dispatch(setUser({ ...user, profileId: id }));
       login();
       toast.success('Login successful!');
 

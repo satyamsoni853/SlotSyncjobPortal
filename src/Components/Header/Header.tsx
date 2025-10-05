@@ -19,7 +19,6 @@ function Header() {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const isDark = colorScheme === 'dark';
   const user = useSelector((state: any) => state.user);
-  console.log('Header component received user data:', user);
   const { isAuthenticated, logout } = useAuth();
   const navigate = useNavigate();
 
