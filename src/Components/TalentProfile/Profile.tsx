@@ -64,7 +64,12 @@ function Profile() {
 
   const handleEdit = (section: string) => {
     setEditingSection(section);
-    setEditedProfile({ ...profile });
+    setEditedProfile({
+      ...profile,
+      experiences: profile.experiences || [],
+      certifications: profile.certifications || [],
+      education: profile.education || [],
+    });
   };
 
   const handleCancel = () => {
@@ -91,10 +96,10 @@ function Profile() {
   };
 
   const handleSkillAdd = () => {
-    if (newSkill && editedProfile && !editedProfile.skills.includes(newSkill)) {
+    if (newSkill && editedProfile && !(editedProfile.skills || []).includes(newSkill)) {
       setEditedProfile({
         ...editedProfile,
-        skills: [...editedProfile.skills, newSkill],
+        skills: [...(editedProfile.skills || []), newSkill],
       });
       setNewSkill("");
     }
@@ -130,7 +135,7 @@ function Profile() {
       };
       setEditedProfile({
         ...editedProfile,
-        experiences: [...editedProfile.experiences, newExperience],
+        experiences: [...(editedProfile.experiences || []), newExperience],
       });
     }
   };
@@ -161,7 +166,7 @@ function Profile() {
       };
       setEditedProfile({
         ...editedProfile,
-        certifications: [...editedProfile.certifications, newCertification],
+        certifications: [...(editedProfile.certifications || []), newCertification],
       });
     }
   };
@@ -194,7 +199,7 @@ function Profile() {
       };
       setEditedProfile({
         ...editedProfile,
-        education: [...editedProfile.education, newEducation],
+        education: [...(editedProfile.education || []), newEducation],
       });
     }
   };
