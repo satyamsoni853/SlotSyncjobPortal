@@ -3,15 +3,15 @@ import './App.css';
 import { MantineProvider, createTheme, localStorageColorSchemeManager, useMantineColorScheme } from '@mantine/core';
 import '@mantine/core/styles.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Provider } from 'react-redux';
+import store from './Store';
 import AuthPage from './Pages/AuthPage';
 import ForgotPasswordPage from './Pages/ForgotPasswordPage';
 import { AuthProvider } from './AuthContext';
 import MainLayout from './MainLayout';
 import ProtectedRoute from './ProtectedRoute';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { Provider } from 'react-redux';
-import store from './Store';
                            
 const grayscalePalette = [
   '#ffffff',

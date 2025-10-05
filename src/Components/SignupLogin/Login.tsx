@@ -29,14 +29,14 @@ function Login() {
     },
   });
 
-  const handleSubmit = async (values: any) => {
+  const handleLogin = async (values: any) => {
     setLoading(true);
     try {
-      await UserService.loginUser(values);
-      toast.success('User logged in successfully!');
-      dispatch(setUser(values));
-      login(); // Call login from AuthContext
-      console.log(values);
+      const userData = await UserService.loginUser(values);
+      console.log("User data from login:", userData); 
+      dispatch(setUser(userData));
+      login();
+      toast.success('Login successful!');
 
       navigate('/');
     } catch (error: any) {
@@ -70,7 +70,7 @@ function Login() {
 
         <Divider my="sm" label="OR" labelPosition="center" classNames={{ label: 'text-gray-500 dark:text-gray-400' }} />
 
-        <form className="space-y-4" onSubmit={form.onSubmit(handleSubmit)}>
+        <form className="space-y-4" onSubmit={form.onSubmit(handleLogin)}>
           <TextInput
             label="Email address"
             placeholder="hello@example.com"
